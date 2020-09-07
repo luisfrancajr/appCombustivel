@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FolderPageRoutingModule } from './folder-routing.module';
+import { CalcularLitrosPageRoutingModule } from './calcular-litros-routing.module';
 
-import { FolderPage } from './folder.page';
+import { CalcularLitrosPage } from './calcular-litros.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    CalcularLitrosPageRoutingModule
   ],
-  declarations: [FolderPage]
+  declarations: [CalcularLitrosPage]
 })
-export class FolderPageModule {}
+export class CalcularLitrosPageModule {}
