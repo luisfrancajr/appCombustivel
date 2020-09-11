@@ -11,10 +11,15 @@ export class CadastrarUsuarioPage implements OnInit {
 
   public usuario: Usuario = new Usuario();
   constructor(private _usuarioService: UsuarioService) {
-    console.log(this.usuario);
+    console.log(this.usuario); 
   }
 
   ngOnInit() {
+  }
+
+  criarUsuario() {
+    console.log(this.usuario);
+    this._usuarioService.cadastrar(this.usuario);
   }
 
 }

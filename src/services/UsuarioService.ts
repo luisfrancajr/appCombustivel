@@ -11,7 +11,12 @@ export class UsuarioService implements IUsuarioService {
        
     }
     cadastrar(usuario: Usuario): Observable<Usuario> {
-        throw new Error("Method not implemented.");
+        // valores falsos: 0, null, undefined, ""
+        if (!usuario.nome) throw new Error('O campo Nome é obrigatório.');
+        if (!usuario.email) throw new Error('O campo Email é obrigatório.');
+        if (!usuario.senha) throw new Error('O campo Senha é obrigatório.');
+        if (usuario.senha != usuario.confirmarSenha) throw new Error('As senhas não coincidem.');
+        throw new Error("Já pode salvar.");
     }
     atualizar(usuario: Usuario): Observable<Usuario> {
         throw new Error("Method not implemented.");
