@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { CarroService } from 'src/services/CarroService';
 import { LoginService } from 'src/services/LoginService';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ErrosGlobais } from 'src/shared/ErrosGlobais';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     UsuarioService,
     CarroService,
     LoginService,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: ErrorHandler, useClass: ErrosGlobais }
   ],
   bootstrap: [AppComponent]
 })

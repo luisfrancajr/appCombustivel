@@ -12,7 +12,7 @@ export class CarroService implements ICarroService {
     editar(carro: Carro): Observable<Carro> {
         throw new Error("Method not implemented.");
     }
-    listar(): Observable<import("../models/Carro").Carro[]> {
+    listar(): Observable<Carro[]> {
         throw new Error("Method not implemented.");
     }
     buscar(carro_id: number): Observable<Carro> {
