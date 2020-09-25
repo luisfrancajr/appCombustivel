@@ -1,8 +1,12 @@
 import { ICarroService } from 'src/interfaces/ICarroService';
 import { Carro } from 'src/models/Carro';
 import { Observable } from 'rxjs';
+import { Global } from 'src/shared/Global';
 
 export class CarroService implements ICarroService {
+
+    public apiUrl: string = Global.ApiUrl+"carros";
+
     cadastrar(carro: Carro): Observable<Carro> {
         throw new Error("Method not implemented.");
     }

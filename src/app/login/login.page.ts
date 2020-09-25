@@ -33,7 +33,10 @@ export class LoginPage implements OnInit {
 
   fazerLogin() {
     console.log(this.login);
-    this._loginService.login(this.login);
+    this._loginService.login(this.login).subscribe((res) => {
+      console.log(res);
+    });
+
   }
 
   fazerCadastro() {

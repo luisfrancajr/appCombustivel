@@ -3,10 +3,14 @@ import { Usuario } from 'src/models/Usuario';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Global } from 'src/shared/Global';
 @Injectable({
     'providedIn': 'root'
 })
 export class UsuarioService implements IUsuarioService {
+    
+    public apiUrl: string = Global.ApiUrl+"usuarios";
+
     constructor (private _httpClient: HttpClient) {
        
     }
