@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Login } from 'src/models/Login';
 import { LoginService } from 'src/services/LoginService';
+import { UsuarioService } from 'src/services/UsuarioService';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ import { LoginService } from 'src/services/LoginService';
 export class LoginPage implements OnInit {
   public login: Login = new Login();
   constructor(private _menu: MenuController, 
-    private _route: Router, private _loginService: LoginService) {}
+    private _route: Router, private _loginService: LoginService, 
+    private _usuarioService: UsuarioService) {}
 
   ngOnInit() {
     console.log('O menu foi bloqueado.');
@@ -34,6 +36,8 @@ export class LoginPage implements OnInit {
   fazerLogin() {
     console.log(this.login);
     this._loginService.login(this.login).subscribe((res) => {
+      this._usuarioService.logar(res);
+      this._route.navigate(['/lista-carros']);
       console.log(res);
     });
 

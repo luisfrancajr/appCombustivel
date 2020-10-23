@@ -26,10 +26,11 @@ export class UsuarioService implements IUsuarioService {
         throw new Error("Method not implemented.");
     }
     logar(usuario: Usuario): void {
-        throw new Error("Method not implemented.");
+        localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
     }
     retornarUsuarioLogado(): Usuario {
-        throw new Error("Method not implemented.");
+        let usuario: Usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+        return usuario;
     }
 
 }

@@ -31,7 +31,7 @@ export class ErrosGlobais implements ErrorHandler {
                     msg = "Serviço não autorizado.";
                     break;
                 default:
-                    msg = "Serviço indisponível.";
+                    msg = er.error;
             }
             this.mostrarErro(msg);
         }
