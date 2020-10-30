@@ -8,5 +8,39 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        imagem
+      </ion-col>
+    </ion-row>
 
+    <ion-row>
+      <ion-col>
+
+        <ion-item>
+          <ion-label position="floating">Modelo</ion-label>
+          <ion-input type="text" [(ngModel)]="carro.modelo"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Montadora</ion-label>
+          <ion-input type="text" [(ngModel)]="carro.montadora"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Consumo Álcool</ion-label>
+          <ion-input type="number" [(ngModel)]="carro.consumoAlcool"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Consumo Gasolina</ion-label>
+          <ion-input type="number" [(ngModel)]="carro.consumoGasolina"></ion-input>
+        </ion-item>
+
+        <ion-button (click)="cadastrarCarro();" expand="full">Salvar</ion-button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

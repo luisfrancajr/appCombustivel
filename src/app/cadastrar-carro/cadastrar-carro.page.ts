@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Carro } from 'src/models/Carro';
+import { CarroService } from 'src/services/CarroService';
 
 @Component({
   selector: 'app-cadastrar-carro',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastrar-carro.page.scss'],
 })
 export class CadastrarCarroPage implements OnInit {
-
-  constructor() { }
+  public carro: Carro = new Carro();
+  constructor(public _carroService: CarroService) {
+  }
 
   ngOnInit() {
+  }
+
+  cadastrarCarro() {
+    this._carroService.cadastrar(this.carro).subscribe(res => {
+      console.log(res);
+    });
   }
 
 }

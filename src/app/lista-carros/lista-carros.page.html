@@ -9,4 +9,28 @@
 
 <ion-content>
 
+  <ion-grid>
+    <!--Lista de carros do usuário-->
+    <ion-row *ngIf="carros.length > 0">
+
+      <ion-col>
+
+        <h2>Lista Carro</h2>
+
+      </ion-col>
+   
+    </ion-row> 
+
+    <!--Botão para criar um carro-->
+    <ion-row *ngIf="carros.length == 0">
+
+      <ion-col>
+        <h2>Você ainda não possui carros. Cadastre agora!</h2>
+        <ion-button (click)="cadastrarCarro();" expand="full">Cadastrar Carro</ion-button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
 </ion-content>
