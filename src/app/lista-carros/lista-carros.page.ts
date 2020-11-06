@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Carro } from 'src/models/Carro';
+import { CarroService } from 'src/services/CarroService';
 
 @Component({
   selector: 'app-lista-carros',
@@ -9,9 +10,17 @@ import { Carro } from 'src/models/Carro';
 })
 export class ListaCarrosPage implements OnInit {
   public carros: Carro[] = new Array<Carro>();
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _carroService: CarroService) { 
+    this.obterCarros();
+  }
 
   ngOnInit() {
+  }
+
+  async obterCarros() {
+    const listaCarros = await this._carroService.listar();
+    this.carros = listaCarros;
+    console.log(this.carros);
   }
 
   cadastrarCarro() {

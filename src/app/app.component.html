@@ -6,6 +6,11 @@
           <ion-list-header>Inbox</ion-list-header>
           <ion-note>hi@ionicframework.com</ion-note>
 
+          <!-- Menu toggle para fechar o menu ao fazer logout -->
+          <ion-menu-toggle>
+            <ion-button (click)="logout();">Sair</ion-button>
+          </ion-menu-toggle>
+
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>

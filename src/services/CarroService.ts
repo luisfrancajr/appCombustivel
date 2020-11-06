@@ -35,8 +35,25 @@ export class CarroService implements ICarroService {
     editar(carro: Carro): Observable<Carro> {
         throw new Error("Method not implemented.");
     }
-    listar(): Observable<Carro[]> {
-        throw new Error("Method not implemented.");
+
+    listar(): Promise<Carro[]> {
+        const promise = new Promise<Carro[]>(async (resolve, reject) => {
+            try { 
+                // forma 1
+                const usuario = await this._usuarioService.buscarUsuario().toPromise();
+                resolve(usuario.carros);
+
+                // forma 2
+                // const usuario = this._usuarioService.buscarUsuario();
+                // usuario.subscribe(res => {
+                //     resolve(res.carros);
+                // });
+
+            } catch(e) {
+               reject(e); 
+            }
+        });
+        return promise;
     }
     buscar(carro_id: number): Observable<Carro> {
         throw new Error("Method not implemented.");

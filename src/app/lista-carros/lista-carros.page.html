@@ -15,7 +15,13 @@
 
       <ion-col>
 
-        <h2>Lista Carro</h2>
+        <ion-list>
+
+          <ion-item *ngFor="let carro of carros">
+            {{ carro.modelo }} - {{ carro.montadora }}
+          </ion-item> 
+
+        </ion-list>
 
       </ion-col>
    
