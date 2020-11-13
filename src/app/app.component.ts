@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { IonRouterOutlet, MenuController, Platform } from '@ionic/angular';
+import { MenuController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UsuarioService } from 'src/services/UsuarioService';
@@ -36,14 +36,14 @@ export class AppComponent implements OnInit {
     },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-
+  
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private _usuarioService: UsuarioService,
     private _menu: MenuController,
-    private _router: Router,
+    private _router: Router
   ) {
     this.initializeApp();
   }
@@ -54,6 +54,7 @@ export class AppComponent implements OnInit {
       this.splashScreen.hide();
     });
   }
+  
   
   ngOnInit() {
     const path = window.location.pathname.split('folder/')[1];

@@ -1,19 +1,18 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorHandler, Injectable } from '@angular/core';
+import { ErrorHandler, Injectable, ViewChild } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
 @Injectable({
     'providedIn': 'root',
 })
 export class ErrosGlobais implements ErrorHandler {
-    
     constructor(private _alert: AlertController) {
 
     }
 
     handleError(error: any): void {
 
-        console.log(error);
+        // console.log(error);
 
         if (error instanceof Error) {
             let er: Error = error;
@@ -36,6 +35,8 @@ export class ErrosGlobais implements ErrorHandler {
             this.mostrarErro(msg);
         }
     }
+
+    
 
     async mostrarErro(msg: string) {
         const alert = await this._alert.create({

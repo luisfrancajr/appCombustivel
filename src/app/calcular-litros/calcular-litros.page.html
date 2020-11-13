@@ -9,4 +9,34 @@
 
 <ion-content>
 
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Carro</ion-label>
+      <ion-select [(ngModel)]="carro_id" okText="OK" cancelText="Cancelar" placeholder="Selecione um carro">
+        <ion-select-option *ngFor="let carro of carros" value="{{carro.id}}">{{carro.modelo}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+ 
+    <ion-item> 
+      <ion-label>Combustível</ion-label>
+      <ion-select [(ngModel)]="combustivel" okText="OK" cancelText="Cancelar" placeholder="Selecione um Combustível">
+        <ion-select-option value="1">Gasolina</ion-select-option>
+        <ion-select-option value="2">Álcool</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item> 
+      <ion-label position="floating">Distância</ion-label>
+      <ion-input [(ngModel)]="distancia" expand="full" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-button (click)="fazerCalculoLitros();" expand="full">Calcular Litros</ion-button>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
 </ion-content>

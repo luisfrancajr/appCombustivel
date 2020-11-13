@@ -17,7 +17,7 @@
 
         <ion-list>
 
-          <ion-item *ngFor="let carro of carros">
+          <ion-item *ngFor="let carro of carros" (click)="visualizarCarro(carro.id);">
             {{ carro.modelo }} - {{ carro.montadora }}
           </ion-item> 
 

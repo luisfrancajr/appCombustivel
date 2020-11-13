@@ -12,6 +12,7 @@ import { UsuarioService } from 'src/services/UsuarioService';
 })
 export class LoginPage implements OnInit {
   public login: Login = new Login();
+  private _htmlLoading: HTMLIonLoadingElement;
   constructor(private _menu: MenuController, 
     private _route: Router, private _loginService: LoginService, 
     private _usuarioService: UsuarioService) {}
@@ -32,6 +33,8 @@ export class LoginPage implements OnInit {
     // habilitando o arraste do menu ao sair da view
     this._menu.swipeGesture(true);
   }
+
+
 
   fazerLogin() {
     console.log(this.login);

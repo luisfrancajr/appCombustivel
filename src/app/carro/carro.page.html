@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>carro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ carro.modelo }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label>
+        <h3>Modelo</h3>
+        <p>{{ carro.modelo }}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h3>Montadora</h3>
+        <p>{{ carro.montadora }}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h3>Consumo Gasolina</h3>
+        <p>{{ carro.consumoGasolina }} km/l</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h3>Consumo Álcool</h3>
+        <p>{{ carro.consumoAlcool }} km/l</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>

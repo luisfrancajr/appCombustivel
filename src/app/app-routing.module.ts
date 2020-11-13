@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
-    path: 'carro',
+    path: 'carro/:carroId',
     loadChildren: () => import('./carro/carro.module').then( m => m.CarroPageModule)
   },
   {

@@ -27,4 +27,8 @@ export class ListaCarrosPage implements OnInit {
     this._router.navigate(['/cadastrar-carro']);
   }
 
+  visualizarCarro(carro_id: Number) {
+    this._router.navigate([`/carro/${carro_id}`]);
+  }
+
 }

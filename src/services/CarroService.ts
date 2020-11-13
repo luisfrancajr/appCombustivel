@@ -13,6 +13,7 @@ export class CarroService implements ICarroService {
 
     public apiUrl: string = Global.ApiUrl+"carros";
     private _usuarioLogado: Usuario = new Usuario();
+    public carros: Carro[] = [];
 
     constructor(private _usuarioService: UsuarioService, 
         private _http: HttpClient) {
@@ -41,6 +42,7 @@ export class CarroService implements ICarroService {
             try { 
                 // forma 1
                 const usuario = await this._usuarioService.buscarUsuario().toPromise();
+                this.carros = usuario.carros;
                 resolve(usuario.carros);
 
                 // forma 2
