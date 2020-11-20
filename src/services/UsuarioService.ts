@@ -31,7 +31,8 @@ export class UsuarioService implements IUsuarioService {
         if (!usuario.email) throw new Error('O campo Email é obrigatório.');
         if (!usuario.senha) throw new Error('O campo Senha é obrigatório.');
         if (usuario.senha != usuario.confirmarSenha) throw new Error('As senhas não coincidem.');
-        throw new Error("Já pode salvar.");
+        
+        return this._httpClient.post<Usuario>(this.apiUrl, usuario);
     }
     atualizar(usuario: Usuario): Observable<Usuario> {
         throw new Error("Method not implemented.");

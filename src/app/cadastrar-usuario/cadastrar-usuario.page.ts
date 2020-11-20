@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/services/UsuarioService';
 import { Usuario } from 'src/models/Usuario';
 import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -12,7 +13,7 @@ export class CadastrarUsuarioPage implements OnInit {
 
   public usuario: Usuario = new Usuario();
   constructor(private _usuarioService: UsuarioService, 
-    private _menu: MenuController) {
+    private _menu: MenuController, private _router: Router) {
     console.log(this.usuario); 
   }
 
@@ -27,7 +28,11 @@ export class CadastrarUsuarioPage implements OnInit {
 
   criarUsuario() {
     console.log(this.usuario);
-    this._usuarioService.cadastrar(this.usuario);
+    this._usuarioService.cadastrar(this.usuario).subscribe(usuario => {
+      console.log(usuario);
+      // direcionar para o login
+      this._router.navigate(['/login']);
+    })
   }
 
 }

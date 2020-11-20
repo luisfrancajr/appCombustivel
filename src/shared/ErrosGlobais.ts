@@ -6,6 +6,7 @@ import { AlertController } from '@ionic/angular';
     'providedIn': 'root',
 })
 export class ErrosGlobais implements ErrorHandler {
+    public htmlLoading: HTMLIonLoadingElement;
     constructor(private _alert: AlertController) {
 
     }
@@ -13,6 +14,7 @@ export class ErrosGlobais implements ErrorHandler {
     handleError(error: any): void {
 
         // console.log(error);
+        this.fecharLoading();
 
         if (error instanceof Error) {
             let er: Error = error;
@@ -36,7 +38,13 @@ export class ErrosGlobais implements ErrorHandler {
         }
     }
 
-    
+    fecharLoading() {
+        setTimeout(() => {
+            this.htmlLoading = <HTMLIonLoadingElement> document.getElementById('custom-loading');
+            console.log(this.htmlLoading);
+            this.htmlLoading.dismiss();
+        }, 500);
+    }    
 
     async mostrarErro(msg: string) {
         const alert = await this._alert.create({

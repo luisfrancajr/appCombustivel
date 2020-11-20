@@ -27,6 +27,7 @@ export class CadastrarCarroPage implements OnInit {
     this._htmlLoading = await this._loading.create({
       cssClass: 'my-custom-class',
       message: 'Aguarde...',
+      id: 'custom-loading'
     });
 
     await this._htmlLoading.present();

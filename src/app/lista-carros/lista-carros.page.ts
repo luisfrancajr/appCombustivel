@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Carro } from 'src/models/Carro';
 import { CarroService } from 'src/services/CarroService';
@@ -8,13 +8,21 @@ import { CarroService } from 'src/services/CarroService';
   templateUrl: './lista-carros.page.html',
   styleUrls: ['./lista-carros.page.scss'],
 })
-export class ListaCarrosPage implements OnInit {
+export class ListaCarrosPage implements OnInit, OnDestroy {
   public carros: Carro[] = new Array<Carro>();
   constructor(private _router: Router, private _carroService: CarroService) { 
-    this.obterCarros();
+  }
+
+  ngOnDestroy(): void {
+    console.log('Limpou os carros');
+    this.carros = [];
   }
 
   ngOnInit() {
+  }
+
+  ionViewDidEnter() {
+    this.obterCarros();
   }
 
   async obterCarros() {
