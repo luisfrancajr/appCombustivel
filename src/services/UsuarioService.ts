@@ -35,7 +35,15 @@ export class UsuarioService implements IUsuarioService {
         return this._httpClient.post<Usuario>(this.apiUrl, usuario);
     }
     atualizar(usuario: Usuario): Observable<Usuario> {
-        throw new Error("Method not implemented.");
+
+        if (!usuario.nome) throw new Error('O campo Nome é obrigatório.');
+        if (!usuario.email) throw new Error('O campo Email é obrigatório.');
+
+        if (usuario.senha) {
+            if (usuario.senha != usuario.confirmarSenha) throw new Error('As senhas não coincidem.');  
+        }
+
+        return this._httpClient.put<Usuario>(`${this.apiUrl}/${usuario.id}`, usuario);
     }
     logar(usuario: Usuario): void {
         localStorage.setItem('usuarioLogado', JSON.stringify(usuario));

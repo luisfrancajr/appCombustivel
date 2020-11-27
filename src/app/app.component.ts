@@ -4,7 +4,8 @@ import { MenuController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UsuarioService } from 'src/services/UsuarioService';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { Usuario } from 'src/models/Usuario';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,8 @@ export class AppComponent implements OnInit {
       icon: 'calculator'
     },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+
+  public usuario: Usuario = new Usuario();
   
   constructor(
     private platform: Platform,
@@ -46,6 +48,7 @@ export class AppComponent implements OnInit {
     private _router: Router
   ) {
     this.initializeApp();
+    this.acompanharRota();
   }
 
   initializeApp() {
@@ -61,6 +64,23 @@ export class AppComponent implements OnInit {
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+  }
+
+  pegarUsuarioLogado() {
+    const usuarioEncontrado: Usuario = this._usuarioService.retornarUsuarioLogado();
+
+    if (usuarioEncontrado) {
+      this.usuario = usuarioEncontrado;
+    }
+  }
+
+  acompanharRota() {
+    this._router.events.subscribe(res => {
+      if (res instanceof NavigationEnd) {
+        console.log(res);
+        this.pegarUsuarioLogado();
+      }
+    });
   }
 
   logout() {
